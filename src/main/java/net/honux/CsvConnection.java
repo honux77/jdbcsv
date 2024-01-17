@@ -20,7 +20,12 @@ public class CsvConnection implements java.sql.Connection{
     }
 
     private boolean existCsv(String url) {
-        return false;
+        if (!url.startsWith("jdbc:csv:"))
+            return false;
+        String path = url.substring(9);
+        System.out.println(path);
+        //check csv exist under resources
+        return getClass().getResource(path) != null;
     }
 
     @Override
