@@ -7,6 +7,22 @@ import java.util.concurrent.Executor;
 
 public class CsvConnection implements java.sql.Connection{
 
+
+    private final String url;
+    private final Properties info;
+
+    public CsvConnection(String url, Properties info) throws SQLException {
+        this.url = url;
+        this.info = info;
+        if (!existCsv(url)) {
+            throw new SQLException("csv file not found");
+        }
+    }
+
+    private boolean existCsv(String url) {
+        return false;
+    }
+
     @Override
     public Statement createStatement() throws SQLException {
         return null;

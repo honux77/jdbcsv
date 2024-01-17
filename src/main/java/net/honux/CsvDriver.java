@@ -15,7 +15,7 @@ public class CsvDriver implements java.sql.Driver {
 
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
-       return null;
+        return new CsvConnection(url, info);
     }
 
     @Override
